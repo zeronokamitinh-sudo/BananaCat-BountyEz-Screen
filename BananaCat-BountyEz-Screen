@@ -41,11 +41,14 @@ local function CreateGUI()
     ScreenGui.Name = GUI_NAME
     ScreenGui.Parent = PlayerGui
     ScreenGui.ResetOnSpawn = false
-    ScreenGui.DisplayOrder = 999
+    -- THAY ĐỔI: Để -1 để GUI luôn nằm dưới các thông báo hệ thống và vật phẩm
+    ScreenGui.DisplayOrder = -1 
 
     MainFrame.Name = "MainFrame"
     MainFrame.Parent = ScreenGui
     MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    -- Thêm một chút độ trong suốt để nhìn xuyên qua được nếu cần
+    MainFrame.BackgroundTransparency = 0.2
     MainFrame.Position = UDim2.new(0.5, -300, 0.5, -140) 
     MainFrame.Size = UDim2.new(0, 600, 0, 280)
     MainFrame.ClipsDescendants = true 
@@ -55,11 +58,11 @@ local function CreateGUI()
 
     BackgroundImg.Name = "BackgroundImg"
     BackgroundImg.Parent = MainFrame
-    BackgroundImg.BackgroundTransparency = 1
+    BackgroundImg.BackgroundTransparency = 0.2
     BackgroundImg.Size = UDim2.new(1, 0, 1, 0)
     BackgroundImg.Image = "rbxassetid://12934568273010" 
     BackgroundImg.ScaleType = Enum.ScaleType.Stretch
-    BackgroundImg.ZIndex = 1
+    BackgroundImg.ZIndex = 0 -- Đưa ảnh xuống lớp nền thấp nhất
 
     Title.Name = "Title"
     Title.Parent = MainFrame
@@ -71,7 +74,7 @@ local function CreateGUI()
     Title.TextColor3 = Color3.fromRGB(255, 255, 0)
     Title.TextSize = 30
     Title.TextXAlignment = Enum.TextXAlignment.Left
-    Title.ZIndex = 2
+    Title.ZIndex = 1
 
     InfoList.Name = "InfoList"
     InfoList.Parent = MainFrame
@@ -83,7 +86,7 @@ local function CreateGUI()
     InfoList.TextSize = 20
     InfoList.TextXAlignment = Enum.TextXAlignment.Left
     InfoList.LineHeight = 1.2
-    InfoList.ZIndex = 2
+    InfoList.ZIndex = 1
 
     ResetBtn.Name = "ResetBtn"
     ResetBtn.Parent = MainFrame
@@ -94,7 +97,7 @@ local function CreateGUI()
     ResetBtn.Font = Enum.Font.GothamBold
     ResetBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
     ResetBtn.TextSize = 15
-    ResetBtn.ZIndex = 3
+    ResetBtn.ZIndex = 2
 
     BtnCorner.CornerRadius = UDim.new(0, 8)
     BtnCorner.Parent = ResetBtn
